@@ -1,56 +1,65 @@
 <div class="container">
   <div class="columns is-centered">
-    <div class="box column is-one-third">
-      <h1 class="title has-text-centered">Password Generator</h1>
-
-      <div class="field">
-        <label>Length</label>
-        <input type="number" min="1" max="20" class="input" (input)="onChangeLength($event)" />
-      </div>
-
-      <div class="field">
+    <div class="box column is-one-third mt-5">
+      <label class="has-text-danger has-text-centered" style="padding-left:25%">تولید رمز عبور در محیط ایمن
+      </label>
+      <hr>
+      <h1 class="title has-text-centered">رمز ساز ایمن</h1>
+      <div class="field is-pulled-right">
         <div class="control">
           <label class="checkbox">
-            <input (change)="onChangeUseLetters()" type="checkbox" />
-            Use Letters
+            <input (input)="onChangeLength($event)" type="number" value="6" min="1" max="15" />
+            تعداد کاراکتر
           </label>
         </div>
       </div>
-      <div class="field">
+      <div class="is-clearfix"></div>
+      <div class="field is-pulled-right">
         <div class="control">
           <label class="checkbox">
-            <input (change)="onChangeUseUpperLetters()" type="checkbox" />
-            Use Uppercase Letters
+            <input (change)="onChangeUseLetters()" type="checkbox" checked />
+            شامل حروف کوچک
           </label>
         </div>
       </div>
-
-      <div class="field">
+      <div class="is-clearfix"></div>
+      <div class="field is-pulled-right">
         <div class="control">
           <label class="checkbox">
-            <input (change)="onChangeUseNumbers()" type="checkbox" />
-            Use Numbers
+            <input (change)="onChangeUseUpperLetters()" type="checkbox" checked />
+            شامل حروف بزرگ
           </label>
         </div>
       </div>
-
-      <div class="field">
+      <div class="is-clearfix"></div>
+      <div class="field is-pulled-right">
         <div class="control">
           <label class="checkbox">
-            <input (change)="onChangeUseSymbols()" type="checkbox" />
-            Use Symbols
+            <input (change)="onChangeUseNumbers()" type="checkbox" checked />
+            شامل اعداد
           </label>
         </div>
       </div>
-
+      <div class="is-clearfix"></div>
+      <div class="field is-pulled-right">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUseSymbols()" type="checkbox" checked />
+            شامل نمادها
+          </label>
+        </div>
+      </div>
+      <div class="is-clearfix"></div>
       <button [disabled]="
-          !(length && (includeLetters || includeSymbols || includeNumbers))
+          ( (includeLetters==false && includeUperLetters==false && includeNumbers==false && includeSymbols==false))
         " (click)="onButtonClick()" class="button is-link is-fullwidth">
-        Generate!
+        ساختن رمز ایمن
       </button>
 
       <div class="box" *ngIf="password">
-        <label>Your Password</label>
+        <label class="has-text-success has-background-dark is-pulled-right">رمز عبور در کلیپ بورد شما ذخیره شد</label>
+        <hr>
+        <label class="is-pulled-right">رمز عبور شما</label>
         <input class="input" [value]="password" />
       </div>
     </div>

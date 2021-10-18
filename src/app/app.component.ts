@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,17 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  length = 0;
-  includeLetters = false;
-  includeUperLetters=false;
-  includeNumbers = false;
-  includeSymbols = false;
+
+  length = 6;
+  includeLetters = true;
+  includeUperLetters = true;
+  includeNumbers = true;
+  includeSymbols = true;
   password = '';
+  message = '';
 
   onChangeLength(evnet: Event) {
-    var value=event.target as HTMLInputElement;
+    var value = event.target as HTMLInputElement;
     const parsedValue = parseInt(value.value);
-
     if (!isNaN(parsedValue)) {
       this.length = parsedValue;
     }
@@ -41,7 +42,7 @@ export class AppComponent {
   onButtonClick() {
     const numbers = '1234567890';
     const letters = 'abcdefghijklmnopqrstuvwxyz';
-    const upperLetters='ABCDEFGHIJKLMNOPQRTUVWXYZ';
+    const upperLetters = 'ABCDEFGHIJKLMNOPQRTUVWXYZ';
     const symbols = '!@#$%^&*()';
 
     let validChars = '';
@@ -64,5 +65,16 @@ export class AppComponent {
       generatedPassword += validChars[index];
     }
     this.password = generatedPassword;
+    this.copy();
+  }
+
+  copy() {
+    const el = document.createElement('textarea');
+    el.value = this.password;
+
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
   }
 }
