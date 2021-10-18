@@ -1,17 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'bulma/css/bulma.css';
+@import "bulma/css/bulma.css";
 
-@font-face {
-  font-family: 'Vazir';
-  src: url('assets/fonts/Vazir.eot') format('woff2'),
-    url('assets/fonts/Vazir.woff') format('woff'),
-    url('assets/fonts/Vazir.ttf') format('truetype');
+body {
+  font-family: "Tahoma";
 }
 .outlet-wrapper {
   background-image: url("/assets/back.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  min-height:100vh;
-  min-width:100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+label {
+  font-size: 1.2em;
+}
+input {
+  font-size: 1.1em;
 }
