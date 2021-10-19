@@ -7,7 +7,7 @@ import { AfterViewInit, Component, ElementRef } from '@angular/core';
 })
 export class AppComponent {
 
-  length = 6;
+  length =8;
   includeLetters = true;
   includeUperLetters = true;
   includeNumbers = true;
