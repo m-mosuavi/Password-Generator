@@ -1,8 +1,8 @@
 <div class="container">
   <div class="columns is-centered">
-    <div class="box column is-one-third mt-5">
+    <div class="box column is-5 mt-5">
+      <h1 class="title has-text-centered">Complex Password Generator</h1>
       <hr />
-      <h1 class="title has-text-centered">Password Generator</h1>
       <div class="field is-pulled-left">
         <div class="control">
           <label class="checkbox">
@@ -20,9 +20,13 @@
       <div class="is-clearfix"></div>
       <div class="field is-pulled-left">
         <div class="control">
-          <label class="checkbox">
+          <label class="checkbox primary">
             Include Lowercase Characters:
-            <input (change)="onChangeUseLetters()" type="checkbox" checked />
+            <input
+              (change)="onChangeUseLetters()"
+              type="checkbox"
+              checked
+            /><span class="ml-5">( example: abcdefgh )</span>
           </label>
         </div>
       </div>
@@ -35,7 +39,7 @@
               (change)="onChangeUseUpperLetters()"
               type="checkbox"
               checked
-            />
+            /><span class="ml-5">( example: ABCDEFGH )</span>
           </label>
         </div>
       </div>
@@ -45,6 +49,7 @@
           <label class="checkbox">
             Include Numbers:
             <input (change)="onChangeUseNumbers()" type="checkbox" checked />
+            <span class="ml-5">( example: 123456 )</span>
           </label>
         </div>
       </div>
@@ -54,6 +59,7 @@
           <label class="checkbox">
             Include Symbols:
             <input (change)="onChangeUseSymbols()" type="checkbox" checked />
+            <span class="ml-5">( example: !@#$% )</span>
           </label>
         </div>
       </div>
@@ -66,14 +72,14 @@
           includeSymbols == false
         "
         (click)="onButtonClick()"
-        class="button is-link is-fullwidth"
+        class="button is-info is-fullwidth"
       >
         Generate Password
       </button>
 
       <div class="box" *ngIf="password">
-        <label class="has-text-success has-background-dark is-pulled-left"
-          >password has copied to your clipboard !!!</label
+        <label class="has-text-success is-pulled-left"
+          >The password has been copied to your clipboard !</label
         >
         <hr />
         <label class="is-pulled-left">Password is:</label>

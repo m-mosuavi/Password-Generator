@@ -3,11 +3,10 @@ import { AfterViewInit, Component, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-
-  length =8;
+  length = 8;
   includeLetters = true;
   includeUperLetters = true;
   includeNumbers = true;
