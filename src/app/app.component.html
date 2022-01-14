@@ -1,90 +1,64 @@
-<div class="container">
-  <div class="columns is-centered">
-    <div class="box column is-5 mt-5">
-      <h1 class="title has-text-centered">Complex Password Generator</h1>
-      <hr />
-      <div class="field is-pulled-left">
-        <div class="control">
-          <label class="checkbox">
-            Password Length:
-            <input
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-6 bg-white" >
+    <h1 class="text-center">Complex Password Generator</h1>
+    <hr>
+    <div style="padding-left:10%;">
+      <div class="row" >
+        <label for="inputEmail3" class="col-sm-4">Password Length:</label>
+        <div class="col-sm-8">
+          <input
               (input)="onChangeLength($event)"
               type="number"
               value="8"
               min="1"
               max="15"
             />
-          </label>
         </div>
       </div>
-      <div class="is-clearfix"></div>
-      <div class="field is-pulled-left">
-        <div class="control">
-          <label class="checkbox primary">
-            Include Lowercase Characters:
-            <input
-              (change)="onChangeUseLetters()"
-              type="checkbox"
-              checked
-            /><span class="ml-5">( example: abcdefgh )</span>
-          </label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" (change)="onChangeUseLetters()" type="checkbox" value="" id="flexCheckDefault" checked >
+        <label class="form-check-label" for="flexCheckDefault">
+          Include Lowercase Characters
+        </label>
       </div>
-      <div class="is-clearfix"></div>
-      <div class="field is-pulled-left">
-        <div class="control">
-          <label class="checkbox">
-            Include Uppercase Characters:
-            <input
-              (change)="onChangeUseUpperLetters()"
-              type="checkbox"
-              checked
-            /><span class="ml-5">( example: ABCDEFGH )</span>
-          </label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" (change)="onChangeUseUpperLetters()" type="checkbox" value="" id="flexCheckDefault" checked >
+        <label class="form-check-label" for="flexCheckDefault">
+          Include Uppercase Characters
+        </label>
       </div>
-      <div class="is-clearfix"></div>
-      <div class="field is-pulled-left">
-        <div class="control">
-          <label class="checkbox">
-            Include Numbers:
-            <input (change)="onChangeUseNumbers()" type="checkbox" checked />
-            <span class="ml-5">( example: 123456 )</span>
-          </label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" (change)="onChangeUseNumbers()" type="checkbox" value="" id="flexCheckDefault" checked >
+        <label class="form-check-label" for="flexCheckDefault">
+          Include Numbers
+        </label>
       </div>
-      <div class="is-clearfix"></div>
-      <div class="field is-pulled-left">
-        <div class="control">
-          <label class="checkbox">
-            Include Symbols:
-            <input (change)="onChangeUseSymbols()" type="checkbox" checked />
-            <span class="ml-5">( example: !@#$% )</span>
-          </label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" (change)="onChangeUseSymbols()" type="checkbox" value="" id="flexCheckDefault" checked >
+        <label class="form-check-label" for="flexCheckDefault">
+          Include Symbols
+        </label>
       </div>
-      <div class="is-clearfix"></div>
-      <button
-        [disabled]="
-          includeLetters == false &&
-          includeUperLetters == false &&
-          includeNumbers == false &&
-          includeSymbols == false
-        "
-        (click)="onButtonClick()"
-        class="button is-info is-fullwidth"
+      <button  [disabled]="
+      includeLetters == false &&
+      includeUperLetters == false &&
+      includeNumbers == false &&
+      includeSymbols == false
+    " type="submit" (click)="onButtonClick()" class="btn btn-success">Generate</button>
+    <hr>
+    <br>
+    <div class="box" *ngIf="password">
+      <label class="text-danger text-center"
+        >The password has been copied to your clipboard !</label
       >
-        Generate Password
-      </button>
-
-      <div class="box" *ngIf="password">
-        <label class="has-text-success is-pulled-left"
-          >The password has been copied to your clipboard !</label
-        >
-        <hr />
-        <label class="is-pulled-left">Password is:</label>
-        <input class="input" [value]="password" />
-      </div>
+      <hr />
+      <label class="is-pulled-left">Password is:</label>
+      <input class="input" [value]="password" />
     </div>
   </div>
+    
+    <hr>
+  </div>
+  <div class="col-md-2"></div>
 </div>

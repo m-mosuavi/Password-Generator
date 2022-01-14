@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import "bulma/css/bulma.css";
+/*@import "bulma/css/bulma.css";*/
 
 body {
   font-family: "Tahoma";
 }
 .outlet-wrapper {
-  background-image: url("/assets/back.jpg");
+  background-image: url("/assets/back-min.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -13,7 +13,7 @@ body {
   min-width: 100vw;
 }
 label {
-  font-size: 1.2em;
+  font-size: 1.3em;
 }
 input {
   font-size: 1.1em;
